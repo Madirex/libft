@@ -6,9 +6,10 @@
 /*   By: anmateo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 10:27:30 by anmateo-          #+#    #+#             */
-/*   Updated: 2023/09/20 10:35:52 by anmateo-         ###   ########.fr       */
+/*   Updated: 2023/09/20 10:41:18 by anmateo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
