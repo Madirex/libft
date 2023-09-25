@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anmateo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/25 10:18:56 by anmateo-          #+#    #+#             */
-/*   Updated: 2023/09/25 10:50:18 by anmateo-         ###   ########.fr       */
+/*   Created: 2023/09/25 10:58:23 by anmateo-          #+#    #+#             */
+/*   Updated: 2023/09/25 10:58:24 by anmateo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str_return;
 	size_t	len_return;
-	unsigned int	i;
+	int	test;
 
 	len_return = 0;
 	if (s)
@@ -29,10 +29,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		i = 0;
 		while (i < s_len)
 		{
-			len_return[i] = s[start + i];
+			str_return[i] = s[start + i];
 			i++;
 		}
 	}
-	len_return[i] = '\0';
-	return (len_return);
+	str_return[i] = '\0';
+	return (str_return);
 }
