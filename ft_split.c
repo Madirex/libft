@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anmateo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 10:16:14 by anmateo-          #+#    #+#             */
-/*   Updated: 2023/10/02 10:16:15 by anmateo-         ###   ########.fr       */
+/*   Created: 2023/09/29 11:08:24 by anmateo-          #+#    #+#             */
+/*   Updated: 2023/10/02 11:54:49 by anmateo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_lstadd_back(t_list **lst, t_list *new)
+char	**ft_split(char const *s, char c)
 {
-	if (lst && new)
+	char	**matrix;
+	unsigned int	i;
+
+	matrix = malloc(size_of(c
+	i = 0;
+	while(*s)
 	{
-		if (!*lst)
-			*lst = new;
-		else
-			ft_lstlast(*lst)->next = new;
+		if (s == c)
+		{
+			
+		}
+		s++;
 	}
+
+	return (matrix);
 }
