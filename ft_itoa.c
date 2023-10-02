@@ -6,9 +6,27 @@
 /*   By: anmateo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 10:14:35 by anmateo-          #+#    #+#             */
-/*   Updated: 2023/09/25 10:14:55 by anmateo-         ###   ########.fr       */
+/*   Updated: 2023/10/02 11:14:09 by anmateo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+static int	ft_numlen(long n)
+{
+	int	len;
+
+	len = 0;
+	if (n < 0)
+	{
+		n *= -1;
+		len++;
+	}
+	while (n > 0)
+	{
+		n = n / 10;
+		len++;
+	}
+	return (len);
+}
 
 char	*ft_itoa(int nb)
 {
@@ -37,22 +55,4 @@ char	*ft_itoa(int nb)
 		nbl = nbl / 10;
 	}
 	return (str);
-}
-
-int	ft_numlen(long n)
-{
-	int	len;
-
-	len = 0;
-	if (n < 0)
-	{
-		n *= -1;
-		len++;
-	}
-	while (n > 0)
-	{
-		n = n / 10;
-		len++;
-	}
-	retrun(len);
 }
