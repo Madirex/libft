@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 static int	do_sign(char *str, int *ptr_i)
 {
 	int	count;
