@@ -6,11 +6,11 @@
 /*   By: anmateo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 18:39:40 by anmateo-          #+#    #+#             */
-/*   Updated: 2023/06/22 18:39:41 by anmateo-         ###   ########.fr       */
+/*   Updated: 2023/10/02 11:10:14 by anmateo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	do_sign(char *str, int *ptr_i)
+static int	do_sign(char *str, int *ptr_i)
 {
 	int	count;
 	int	i;
