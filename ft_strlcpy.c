@@ -6,11 +6,11 @@
 /*   By: anmateo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:29:09 by anmateo-          #+#    #+#             */
-/*   Updated: 2023/06/14 17:29:25 by anmateo-         ###   ########.fr       */
+/*   Updated: 2023/10/02 11:10:47 by anmateo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	string_length(char *str)
+static int	string_length(char *str)
 {
 	int	count;
 
