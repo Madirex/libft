@@ -6,7 +6,7 @@
 /*   By: anmateo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 11:08:24 by anmateo-          #+#    #+#             */
-/*   Updated: 2023/10/03 11:12:31 by anmateo-         ###   ########.fr       */
+/*   Updated: 2023/10/03 12:06:51 by anmateo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static int	count_splits(char const *s, char delim)
 {
-	unsigned int	n_splits;
-	unsigned int	i;
-	unsigned int	word_detected;
+	int	n_splits;
+	int	i;
+	int	word_detected;
 
 	n_splits = 0;
 	i = 0;
@@ -34,6 +34,36 @@ static int	count_splits(char const *s, char delim)
 		word_detected = 0;
 	}
 	return (n_splits);
+}
+
+static int	save_str(const char *s, char *str, int end, int len)
+{
+	int	i;
+
+	i = 0;
+	while (i < len)
+	{
+		str[i] = s[end - len + i];
+		i++;
+	}
+	str[i] = '\0';
+	return (0);
+}
+
+static int	pre_save_str(const char *s, char **matrix, t_split_args vals)
+{
+	int	i;
+
+	i = 0;
+	if (!matrix[vals.curr_n])
+	{
+		while (i < vals.curr_n)
+			free(matrix[i++]);
+		free(matrix);
+		return (-1);
+	}
+	save_str(s, matrix[vals.curr_n], vals.i, vals.len);
+	return (0);
 }
 
 static int	split_strings(const char *s, char **matrix, char delim,
@@ -63,40 +93,10 @@ static int	split_strings(const char *s, char **matrix, char delim,
 	return (0);
 }
 
-static int	save_str(const char *s, char *str, int end, int len)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (i < len)
-	{
-		str[i] = s[end - len + i];
-		i++;
-	}
-	str[i] = '\0';
-	return (0);
-}
-
-static int	pre_save_str(const char *s, char **matrix, t_split_args vals)
-{
-	unsigned int	i;
-
-	if (!matrix[vals.curr_n])
-	{
-		i = 0;
-		while (i < vals.curr_n)
-			free(matrix[i++]);
-		free(matrix);
-		return (-1);
-	}
-	save_str(s, matrix[vals.curr_n], vals.i, vals.len);
-	return (0);
-}
-
 char	**ft_split(char const *s, char c)
 {
-	char			**matrix;
-	unsigned int	splits;
+	char	**matrix;
+	int		splits;
 
 	if (!s)
 		return (0);

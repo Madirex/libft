@@ -6,7 +6,7 @@
 /*   By: anmateo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 10:58:23 by anmateo-          #+#    #+#             */
-/*   Updated: 2023/10/03 11:52:58 by anmateo-         ###   ########.fr       */
+/*   Updated: 2023/10/03 11:55:05 by anmateo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	unsigned int	i;
 	char			*str_return;
-	
+
 	if (!s)
 		return (0);
 	if ((size_t)start > ft_strlen(s))

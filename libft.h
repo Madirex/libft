@@ -6,7 +6,7 @@
 /*   By: anmateo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:46:35 by anmateo-          #+#    #+#             */
-/*   Updated: 2023/10/03 10:46:39 by anmateo-         ###   ########.fr       */
+/*   Updated: 2023/10/03 11:57:42 by anmateo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ size_t								ft_strlcat(char *dest, const char *src,
 unsigned int						ft_strlcpy(char *dest, char *src,
 										unsigned int size);
 
-int									ft_strlen(char *str);
+size_t								ft_strlen(const char *str);
 
 char								*ft_strmapi(char const *s,
 										char (*f)(unsigned int, char));
