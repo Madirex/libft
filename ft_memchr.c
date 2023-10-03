@@ -6,7 +6,7 @@
 /*   By: anmateo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:04:54 by anmateo-          #+#    #+#             */
-/*   Updated: 2023/09/27 14:33:48 by anmateo-         ###   ########.fr       */
+/*   Updated: 2023/10/03 11:22:38 by anmateo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 {
 	char			*str;
 	size_t			store_i;
-	unsigned size_t	i;
+	size_t			i;
 
 	str = (char *) s;
 	store_i = -1;
