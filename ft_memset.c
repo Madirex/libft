@@ -6,7 +6,7 @@
 /*   By: anmateo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 11:34:56 by anmateo-          #+#    #+#             */
-/*   Updated: 2023/09/25 10:39:48 by anmateo-         ###   ########.fr       */
+/*   Updated: 2023/10/03 11:16:43 by anmateo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	usigned long	i;
+	unsigned long	i;
 	char			*d;
 
 	d = (char *)s;
