@@ -6,7 +6,7 @@
 /*   By: anmateo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 10:15:04 by anmateo-          #+#    #+#             */
-/*   Updated: 2023/09/25 10:15:15 by anmateo-         ###   ########.fr       */
+/*   Updated: 2023/10/04 12:07:03 by anmateo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*mem;
+	void	*ptr;
 
-	mem = (void *)malloc(count * size);
-	if (mem != 0)
-		ft_bzero(mem, count);
-	return (mem);
+	ptr = malloc(size * count);
+	if (!ptr)
+		return (0);
+	ft_bzero(ptr, (count * size));
+	return (ptr);
 }

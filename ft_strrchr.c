@@ -6,7 +6,7 @@
 /*   By: anmateo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 11:21:26 by anmateo-          #+#    #+#             */
-/*   Updated: 2023/09/27 11:45:18 by anmateo-         ###   ########.fr       */
+/*   Updated: 2023/10/04 12:13:25 by anmateo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,10 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
-	int	pos_return;
 
-	i = 0;
-	pos_return = -1;
-	while (s[i])
-	{
-		if (s[i] == (char) c)
-			pos_return = i;
-		i++;
-	}
-	if (pos_return != -1)
-		return ((char *) &s[pos_return]);
-	if (c == '\0')
-		return ((char *) &s[i]);
+	i = (int)ft_strlen(s) + 1;
+	while (i--)
+		if (*(s + i) == (char)c)
+			return ((char *)s + i);
 	return (0);
 }

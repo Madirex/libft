@@ -6,21 +6,21 @@
 /*   By: anmateo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 10:14:35 by anmateo-          #+#    #+#             */
-/*   Updated: 2023/10/02 11:14:09 by anmateo-         ###   ########.fr       */
+/*   Updated: 2023/10/04 10:25:40 by anmateo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_numlen(long n)
+static long	ft_numlen(long n)
 {
-	int	len;
+	long	len;
 
 	len = 0;
 	if (n < 0)
 	{
-		n *= -1;
 		len++;
+		n *= -1;
 	}
 	while (n > 0)
 	{
@@ -34,7 +34,7 @@ char	*ft_itoa(int nb)
 {
 	char	*str;
 	long	nbl;
-	int		i;
+	long	i;
 
 	nbl = nb;
 	i = ft_numlen(nbl);

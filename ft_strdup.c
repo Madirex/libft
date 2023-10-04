@@ -6,7 +6,7 @@
 /*   By: anmateo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 10:11:58 by anmateo-          #+#    #+#             */
-/*   Updated: 2023/10/02 10:12:20 by anmateo-         ###   ########.fr       */
+/*   Updated: 2023/10/04 12:08:39 by anmateo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,13 @@
 
 char	*ft_strdup(const char *s1)
 {
-	char	*str;
-	int		i;
-	char	*src;
+	size_t	len;
+	char	*dup;
 
-	src = (char *) s1;
-	str = malloc((ft_strlen(src) + 1) + sizeof(char));
-	if (str)
-	{
-		i = 0;
-		while (s1[i])
-		{
-			str[i] = s1[i];
-			i++;
-		}
-		str[i] = '\0';
-	}
-	return (str);
+	len = ft_strlen(s1) + 1;
+	dup = malloc(sizeof(char) * (len));
+	if (!dup)
+		return (0);
+	ft_memcpy(dup, s1, len);
+	return (dup);
 }

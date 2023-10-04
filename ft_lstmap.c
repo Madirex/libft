@@ -6,7 +6,7 @@
 /*   By: anmateo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 10:35:39 by anmateo-          #+#    #+#             */
-/*   Updated: 2023/10/02 10:50:17 by anmateo-         ###   ########.fr       */
+/*   Updated: 2023/10/04 12:05:04 by anmateo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,24 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new_list;
-	t_list	*save;
+	t_list	*node;
+	void	*mapped_content;
 
-	if (lst && f && del)
+	if (!lst || !f || !del)
+		return (0);
+	new_list = 0;
+	while (lst)
 	{
-		new_list = ft_lstnew(f(lst->content));
-		if (!new_list)
-			return (0);
-		save = new_list;
-		lst = lst->next;
-		while (lst)
+		mapped_content = f(lst->content);
+		node = ft_lstnew(mapped_content);
+		if (!node)
 		{
-			new_list->next = ft_lstnew(f(lst->content));
-			if (!new_list->next)
-			{
-				ft_lstclear(&save, del);
-				return (0);
-			}
-			new_list = new_list->next;
-			lst = lst->next;
+			del(mapped_content);
+			ft_lstclear(&new_list, del);
+			return (0);
 		}
-		new_list->next = 0;
-		return (save);
+		ft_lstadd_back(&new_list, node);
+		lst = lst->next;
 	}
-	return (0);
+	return (new_list);
 }
