@@ -6,7 +6,7 @@
 /*   By: anmateo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 11:08:24 by anmateo-          #+#    #+#             */
-/*   Updated: 2023/10/06 11:58:17 by anmateo-         ###   ########.fr       */
+/*   Updated: 2023/10/06 12:04:15 by anmateo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	**ft_split(char const *s, char c)
 {
 	char	**matrix;
 	int		wscount;
-	int		splits;
+	int		i;
 
 	if (!s)
 		return (0);
