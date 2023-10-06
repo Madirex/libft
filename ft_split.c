@@ -6,107 +6,82 @@
 /*   By: anmateo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 11:08:24 by anmateo-          #+#    #+#             */
-/*   Updated: 2023/10/03 12:06:51 by anmateo-         ###   ########.fr       */
+/*   Updated: 2023/10/06 11:58:17 by anmateo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_splits(char const *s, char delim)
+static int	ft_wordlen(char const *s, char c)
 {
-	int	n_splits;
-	int	i;
-	int	word_detected;
+	int	len;
 
-	n_splits = 0;
-	i = 0;
-	word_detected = 0;
-	while (s[i] == delim && s[i] != 0)
-		i++;
-	while (s[i] != delim && s[i] != 0)
+	len = 0;
+	while (*s && *s != c)
 	{
-		i++;
-		word_detected = 1;
+		len++;
+		s++;
 	}
-	if (word_detected)
-	{
-		n_splits++;
-		word_detected = 0;
-	}
-	return (n_splits);
+	return (len);
 }
 
-static int	save_str(const char *s, char *str, int end, int len)
+static int	ft_countwords(char const *s, char c)
 {
-	int	i;
+	int	q;
 
-	i = 0;
-	while (i < len)
+	q = 0;
+	while (*s)
 	{
-		str[i] = s[end - len + i];
-		i++;
-	}
-	str[i] = '\0';
-	return (0);
-}
-
-static int	pre_save_str(const char *s, char **matrix, t_split_args vals)
-{
-	int	i;
-
-	i = 0;
-	if (!matrix[vals.curr_n])
-	{
-		while (i < vals.curr_n)
-			free(matrix[i++]);
-		free(matrix);
-		return (-1);
-	}
-	save_str(s, matrix[vals.curr_n], vals.i, vals.len);
-	return (0);
-}
-
-static int	split_strings(const char *s, char **matrix, char delim,
-		int n_splits)
-{
-	t_split_args	vals;
-
-	vals.i = 0;
-	vals.len = 0;
-	vals.curr_n = 0;
-	vals.n = n_splits;
-	while (vals.curr_n < n_splits)
-	{
-		if ((s[vals.i] == delim || s[vals.i] == 0) && vals.len != 0)
+		if (*s != c)
 		{
-			matrix[vals.curr_n] = malloc((vals.len + 1) * sizeof(char));
-			if (pre_save_str(s, matrix, vals) == -1)
-				return (-1);
-			vals.curr_n++;
-			vals.len = -1;
+			q++;
+			s += ft_wordlen(s, c);
 		}
-		else if (s[vals.i] == delim && vals.len == 0)
-			vals.len = -1;
-		vals.len++;
-		vals.i++;
+		else
+			s++;
 	}
+	return (q);
+}
+
+static void	*free_strings(char **strings)
+{
+	int	i;
+
+	i = 0;
+	while (strings[i])
+	{
+		free(strings[i]);
+		i++;
+	}
+	free(strings);
 	return (0);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**matrix;
+	int		wscount;
 	int		splits;
 
 	if (!s)
 		return (0);
-	splits = count_splits(s, c);
-	matrix = malloc((splits + 1) * sizeof(char *));
+	wscount = ft_countwords(s, c);
+	matrix = malloc(sizeof(char *) * (wscount + 1));
 	if (!matrix)
 		return (0);
-	matrix[splits] = 0;
-	if (splits == 0)
-		return (matrix);
-	split_strings(s, matrix, c, splits);
+	matrix[wscount] = 0;
+	i = 0;
+	while (*s)
+	{
+		if (*s != c)
+		{
+			matrix[i] = ft_substr(s, 0, ft_wordlen(s, c));
+			if (!matrix[i++])
+				return (free_strings(matrix));
+			s += ft_wordlen(s, c);
+		}
+		else
+			s++;
+	}
 	return (matrix);
 }
