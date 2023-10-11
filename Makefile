@@ -30,7 +30,10 @@ SRC = ft_memset.c		\
 		ft_putchar_fd.c	\
 		ft_putstr_fd.c	\
 		ft_putendl_fd.c	\
-		ft_putnbr_fd.c
+		ft_putnbr_fd.c \
+		ft_striteri.c
+
+
 
 SRCL =	ft_lstnew.c			\
 		ft_lstadd_front.c	\
@@ -41,8 +44,6 @@ SRCL =	ft_lstnew.c			\
 		ft_lstdelone.c		\
 		ft_lstiter.c		\
 		ft_lstmap.c			\
-		ft_strncpy.c		\
-		ft_striteri.c		\
 		$(SRC)
 
 NAME = libft.a
