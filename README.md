@@ -35,7 +35,6 @@ Funciones incluidas:
 - ft_putnbr_fd.c
 - ft_strdup.c
 - ft_strlcpy.c
-- ft_strncpy.c
 - ft_substr.c
 - ft_calloc.c
 - ft_isdigit.c
