@@ -1,7 +1,6 @@
 # Libft
-Librería de C que simula algunas de las funciones de la Libft. Esta librería incluye implementaciones de funciones comunes utilizadas en programación en C, como la manipulación de cadenas y el manejo de memoria.
-
-Makefile incluido.
+Implementación personalizada de libft en C.
+Esta librería incluye implementaciones de funciones comunes utilizadas en C, como la manipulación de cadenas y el manejo de memoria.
 
 Funciones incluidas:
 - ft_isalnum.c
