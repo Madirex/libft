@@ -20,22 +20,21 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	str_size = ft_strlen(s1) + ft_strlen(s2) + 1;
 	result = malloc(str_size * sizeof(char));
-	if (result)
+	if (!result)
+		return(NULL);
+	i = 0;
+	while (*s1)
 	{
-		i = 0;
-		while (*s1)
-		{
-			result[i] = *s1;
-			i++;
-			s1++;
-		}
-		while (*s2)
-		{
-			result[i] = *s2;
-			i++;
-			s2++;
-		}
-		result[i] = '\0';
+		result[i] = *s1;
+		i++;
+		s1++;
 	}
+	while (*s2)
+	{
+		result[i] = *s2;
+		i++;
+		s2++;
+	}
+	result[i] = '\0';
 	return (result);
 }
