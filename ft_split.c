@@ -64,11 +64,11 @@ char	**ft_split(char const *s, char c)
 	int		i;
 
 	if (!s)
-		return (0);
+		return (NULL);
 	wscount = ft_countwords(s, c);
 	matrix = malloc(sizeof(char *) * (wscount + 1));
 	if (!matrix)
-		return (0);
+		return (NULL);
 	matrix[wscount] = 0;
 	i = 0;
 	while (*s)
