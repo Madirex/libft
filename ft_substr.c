@@ -18,7 +18,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*str_return;
 
 	if (!s)
-		return (0);
+		return (NULL);
 	i = ft_strlen(s);
 	if (start >= i)
 		return (ft_strdup(""));
@@ -26,7 +26,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		len = i - start;
 	str_return = malloc((len + 1) * sizeof(char));
 	if (!str_return)
-		return (0);
+		return (NULL);
 	ft_memcpy(str_return, s + start, len);
 	str_return[len] = '\0';
 	return (str_return);
