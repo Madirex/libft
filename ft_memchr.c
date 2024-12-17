@@ -28,6 +28,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 		i++;
 	}
 	if (store_i == (size_t) -1)
-		return (0);
+		return (NULL);
 	return (&str[store_i]);
 }
